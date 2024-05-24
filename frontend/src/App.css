@@ -1,0 +1,89 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #2E51A2;
+  color: white;
+  font-size: 2em;
+  border: solid #3B5998;
+  margin-bottom: 1rem;
+}
+
+.links {
+  display: flex;
+  align-items: center;
+}
+
+.links hr {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  height: 40px;
+  margin-right: 20px;
+}
+
+.nav a {
+  color: white;
+  text-decoration: none;
+  margin-right: 20px;
+}
+
+.nav a:hover {
+  color: red;
+}
+
+.dummy {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.arena {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 70vw;
+  height: 70vh;
+  border: solid black;
+  background-image: url("http://www.pokemontopaz.net/uploads/misc/battlegrassnight.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.trainer {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 4rem;
+  margin-right: 4rem;
+}
+
+.trainer img {
+  width: 200px;
+}
+
+.user {
+  display: flex;
+  margin-bottom: -2rem;
+  margin-left: 2rem;
+}
+
+.user img {
+  width: 200px;
+}
+
+.menu {
+  border: solid black;
+  background-color: black;
+  color: white;
+  display: flex;
+  width: 70vw;
+  height: 15vh;
+}
