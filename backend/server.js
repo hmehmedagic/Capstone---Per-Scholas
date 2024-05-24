@@ -5,11 +5,9 @@ const express = require("express");
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-const Note = require("./models/note");
-const notesController = require("./controllers/notesController");
-
 const usersController = require('./controllers/usersController');
 
+// Middleware
 const cookieParser = require('cookie-parser');
 const requireAuth = require('./middleware/requireAuth')
 
@@ -28,8 +26,22 @@ const connectToDb = require("./config/connectToDb");
 connectToDb();
 
 // ---------------------------------- Middleware
-const users = require('./routes/users');
-const posts = require('./routes/posts');
+
+// New logging middleware to help us keep track of
+// requests during testing!
+app.use((req, res, next) => {
+    const time = new Date();
+
+    console.log(
+        `-----
+  ${time.toLocaleTimeString()}: Received a ${req.method} request to ${req.url}.`
+    );
+    if (Object.keys(req.body).length > 0) {
+        console.log("Containing the data:");
+        console.log(`${JSON.stringify(req.body)}`);
+    }
+    next();
+});
 
 // Routing --> Remember to test in Postman
 // -----------------------------------------------
@@ -42,33 +54,6 @@ app.get('/check-auth',requireAuth ,usersController.checkAuth);
 app.get("/", (req, res) => {
     res.send("This is the Landing Page.")
 });
-
-// -----------------------------------------------
-
-//We want to establish CRUD routes for our Notes Model with Routing
-//  Using Controllers
-// ------------------------------------- Create
-app.post("/notes", notesController.createNote);
-
-// ------------------------------------- Read
-app.get("/notes", notesController.fetchAllNotes);
-
-app.get("/notes/:id", notesController.fetchNote);
-
-// ------------------------------------- Update
-app.put("/notes/:id", notesController.updateNote);
-
-// ------------------------------------- Delete
-app.delete("/notes/:id", notesController.deleteNote);
-
-//We want to establish CRUD routes for our Users Model with Routing
-//Using Routes No Controllers
-// ------------------------------------- Create
-app.use("/users", users);
-
-//We want to establish CRUD routes for our Posts Model with Routing
-//Using Routes with Controllers
-app.use("/posts", posts);
 
 // ---------------------------------- Server
 app.listen(PORT, () => {

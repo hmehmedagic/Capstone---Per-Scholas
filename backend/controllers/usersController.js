@@ -30,18 +30,18 @@ const login = async (req, res) => {
     // 2. Find User with requested email
     const user = await User.findOne({ email });
     console.log(`User: ${user}`);
-    if (!user) return res.sendStatus(401);
+    if (!user) return res.status(401).send('This email does not exist.');
     // 3. Compare password with foundUser
     const passwordMatch = await bcrypt.compareSync(password, user.password);
     console.log("Password Verified");
-    if (!passwordMatch) return res.sendStatus(401);
+    if (!passwordMatch) return res.status(401).send('Incorrect Password.');
     // 4. Create JWT
 
     const exp = Date.now() + 1000 * 60 * 60 * 24 * 30;
     console.log(exp);
     // ----milisec: ---> 2sec- imin-1day-30days
     // setting an expiration date for token(ie:30days)
-    const token = jwt.sign({ sub: user._id, exp }, process.env.SECRET);
+    const token = jwt.sign({ sub: user._id, exp, userName: user.userName }, process.env.SECRET);
     console.log("Token:", token);
 
     // -----Cookie
@@ -52,7 +52,7 @@ const login = async (req, res) => {
       // allows only browser and server to read
       sameSite: "lax"
     });
-    res.sendStatus(200)
+    res.status(200).json({ userName: user.userName });
     // Cookie - data that our servers will send to browser and store in cache.
     // Cookies save information about a user's session
     // by default express doesnt read cookies off request body so u need an npm package :cookie-parser
@@ -60,8 +60,11 @@ const login = async (req, res) => {
     // 5. Send Response
   } catch (error) {
     console.log(error);
+    res.status(500).send('Internal Server Error');
   }
 };
+
+
 const logout = (req,res) => {
     res.clearCookie("Authorization")
     res.sendStatus(200)

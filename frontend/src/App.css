@@ -7,11 +7,16 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #2E51A2;
+  background: linear-gradient(to right, #E64E1D 30%, #A6CC39 70%);
   color: white;
   font-size: 2em;
-  border: solid #3B5998;
+  border: solid;
+  border-image: linear-gradient(to right, #A6CC39, #E64E1D) 1;
   margin-bottom: 1rem;
+}
+
+.nav .title {
+  margin-left: 1rem;
 }
 
 .links {
@@ -28,13 +33,15 @@ body {
   margin-right: 20px;
 }
 
-.nav a {
+.nav a,
+.logout {
   color: white;
   text-decoration: none;
   margin-right: 20px;
 }
 
-.nav a:hover {
+.nav a:hover,
+.nav .logout:hover {
   color: red;
 }
 
@@ -86,4 +93,44 @@ body {
   display: flex;
   width: 70vw;
   height: 15vh;
+}
+
+.login-background {
+  background-image: url('https://images5.alphacoders.com/135/1351278.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+
+.register-background {
+  background-image: url('https://images6.alphacoders.com/135/thumb-1920-1351901.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+
+.main-background {
+  /* background-image: url('https://images3.alphacoders.com/686/thumbbig-686170.webp'); */
+  background-image: url('https://wallpapercave.com/wp/wp10993199.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  position: fixed;
+  top: 78px;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
 }

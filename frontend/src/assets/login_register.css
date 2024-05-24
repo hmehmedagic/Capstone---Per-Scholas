@@ -1,0 +1,170 @@
+/* Login and Register Page CSS */
+
+body {
+    font-family: "EB Garamond", sans-serif;
+}
+
+body.reg {
+    margin: 0;
+    padding: 0;
+    /* background-image: url('https://gbf.wiki/images/9/9b/And_you_Key_Art.jpg'); */
+    /* background-image: url('https://gbf.wiki/images/thumb/1/18/Main_Story_Key_Art.png/800px-Main_Story_Key_Art.png'); */
+    /* background-image: url('https://gbf.wiki/images/5/58/PromotionalArt_2021_05_14_GBVS_Rage_Summer.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    object-fit: cover; */
+    z-index: -1;
+}
+
+.login {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.loginContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.profilePic {
+    position: relative;
+    height: 50px;
+    width: 100%;
+    /* margin-top: 30%; */
+}
+
+.loginTxt {
+    position: relative;
+    width: 100%;
+    margin-left: 23px;
+    color: #80a7c0;
+}
+
+.signUpTxt {
+    position: relative;
+    width: 100%;
+    margin-left: 15px;
+}
+
+.emailAndPass {
+    margin-top: 5%;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.emailAndPassContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.emailTxt,
+.passTxt {
+    position: relative;
+    width: 100%;
+}
+
+.loginBtn,
+.signUpBtn {
+    display: flex;
+    justify-content: center;
+    margin-top: 1rem;
+    height: 30px;
+}
+
+.signUpBtn2 {
+    display: flex;
+    justify-content: center;
+}
+
+#myAccount {
+    background-color: rgb(98, 160, 253);
+    color: white;
+    width: 150px;
+    border-radius: 3px;
+    border-color: rgb(98, 160, 253);
+}
+
+a {
+    text-decoration: none;
+}
+
+.buffer {
+    height: 15px;
+}
+
+.loginBorderContainer {
+    border: solid #80a7c0;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    background-color: rgba(255, 255, 255, .8);
+    width: 15%;
+    margin-top: 5%;
+    margin-bottom: 5%;
+}
+
+.loginPage {
+    height: 400px;
+}
+
+#registerPage {
+    height: 500px;
+}
+
+.dummyContainer-login,
+.dummyContainer-register {
+    display: flex;
+    justify-content: center;
+    height: 600px;
+    margin: 0;
+    padding: 0;
+}
+
+/* .dummyContainer-login {
+    background-image: url('https://images5.alphacoders.com/135/1351278.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    object-fit: cover;
+    z-index: -1;
+} */
+
+.createAccount {
+    display: flex;
+    justify-content: center;
+    color: #80a7c0;
+}
+
+.createAccount:hover {
+    opacity: .8;
+}
+
+.input-field,
+.emailTxt,
+.passTxt,
+.userNameTxt,
+.signUpTxt,
+.nameTxt {
+    color: #80a7c0;
+}
+
+.input-field {
+    border-color: #80a7c0;
+}
+
+.signUpBtn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 10px;
+}
+
+#myAccount {
+    margin-bottom: 10px;
+}
+
+
+/* Login and Register CSS */
