@@ -11,7 +11,14 @@ const signup = async (req, res) => {
   // ** Hash Password **
   const hashedPassword = bcrypt.hashSync(password, 8)
 
-  // 2.Create User
+  // 2. Check if user already exists
+  const existingUser = await User.findOne({email});
+
+  if(existingUser) {
+    return res.status(401).send('This user already exists. Please use a different email.');
+  }
+
+  // 3.Create User
   const newUser = await User.create({
     name,
     userName,
@@ -41,7 +48,7 @@ const login = async (req, res) => {
     console.log(exp);
     // ----milisec: ---> 2sec- imin-1day-30days
     // setting an expiration date for token(ie:30days)
-    const token = jwt.sign({ sub: user._id, exp, userName: user.userName }, process.env.SECRET);
+    const token = jwt.sign({ sub: user._id, exp, user }, process.env.SECRET);
     console.log("Token:", token);
 
     // -----Cookie
@@ -52,7 +59,7 @@ const login = async (req, res) => {
       // allows only browser and server to read
       sameSite: "lax"
     });
-    res.status(200).json({ userName: user.userName });
+    res.status(200).json({ user });
     // Cookie - data that our servers will send to browser and store in cache.
     // Cookies save information about a user's session
     // by default express doesnt read cookies off request body so u need an npm package :cookie-parser

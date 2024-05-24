@@ -1,4 +1,3 @@
-import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import '../assets/login_register.css';
 
@@ -19,8 +18,8 @@ const Login = ({ setUser }) => {
     });
 
     if (res.ok) {
-      const { userName } = await res.json();
-      setUser({ userName });
+      const { user } = await res.json();
+      setUser({ user });
       navigate('/');
     } else {
       const errorText = await res.text();

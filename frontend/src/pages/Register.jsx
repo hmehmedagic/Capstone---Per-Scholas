@@ -1,66 +1,91 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import '../assets/login_register.css'
 
 const Register = () => {
-  return (
-    <div className="dummyContainer-register">
-        <div className="loginBorderContainer" id="registerPage">
-            <form action="index.html">
-                {/* Icon and Txt */}
-                <div className="login">
-                    <div className="loginContainer">
-                        <div><img src="https://static.vecteezy.com/system/resources/previews/019/879/186/non_2x/user-icon-on-transparent-background-free-png.png" alt="" className="profilePic"/></div>
-                        <div className="signUpTxt">Sign Up</div>
-                    </div>
-                </div>
+    const navigate = useNavigate();
 
-                {/* Email and Password Section */}
-                <div className="emailAndPass">
-                    <div className="emailAndPassContainer">
-                        <div className="emailTxt">Email address</div>
-                        <div className="emailInput">
-                            <input type="text" className="input-field"/>
-                        </div>
-                        <div className="buffer"></div>
-                        <div className="passTxt">Password</div>
-                        <div className="passInput">
-                            <input type="password" className="input-field"/>
-                        </div>
-                        <div className="buffer"></div>
-                        <div className="passTxt">Confirm Password</div>
-                        <div className="passInput">
-                            <input type="password" className="input-field"/>
-                        </div>
-                        <div className="buffer"></div>
-                        <div className="nameTxt">Name</div>
-                        <div className="nameInput">
-                            <input type="text" className="input-field"/>
-                        </div>
-                        <div className="buffer"></div>
-                        <div className="userNameTxt">User Name</div>
-                        <div className="userNameInput">
-                            <input type="text" className="input-field"/>
+    const handleSubmitFormData = async (event) => {
+        event.preventDefault();
+        const email = document.querySelector('#email').value;
+        const password = document.querySelector('#password').value;
+        const name = document.querySelector('#name').value;
+        const userName = document.querySelector('#userName').value;
+    
+        const res = await fetch('/api/signup', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({ name, userName, email, password }),
+        });
+    
+        if (res.ok) {
+          navigate('/');
+        } else {
+          const errorText = await res.text();
+          window.alert(errorText);
+        }
+      };
+
+
+
+    return (
+        <div className="dummyContainer-register">
+            <div className="loginBorderContainer" id="registerPage">
+                <form onSubmit={handleSubmitFormData}>
+                    {/* Icon and Txt */}
+                    <div className="login">
+                        <div className="loginContainer">
+                            <div><img src="https://static.vecteezy.com/system/resources/previews/019/879/186/non_2x/user-icon-on-transparent-background-free-png.png" alt="" className="profilePic"/></div>
+                            <div className="signUpTxt">Sign Up</div>
                         </div>
                     </div>
-                </div>
-                {/* Sign Up Button */}
-                <div className="signUpBtn">
-                    <Link to="/">
-                        <button id="myAccount">Sign Up</button>
+
+                    {/* Email and Password Section */}
+                    <div className="emailAndPass">
+                        <div className="emailAndPassContainer">
+                            <div className="emailTxt">Email address</div>
+                            <div className="emailInput">
+                                <input id="email" type="text" className="input-field"/>
+                            </div>
+                            <div className="buffer"></div>
+                            <div className="passTxt">Password</div>
+                            <div className="passInput">
+                                <input id="password" type="password" className="input-field"/>
+                            </div>
+                            <div className="buffer"></div>
+                            <div className="passTxt">Confirm Password</div>
+                            <div className="passInput">
+                                <input type="password" className="input-field"/>
+                            </div>
+                            <div className="buffer"></div>
+                            <div className="nameTxt">Name</div>
+                            <div className="nameInput">
+                                <input id="name" type="text" className="input-field"/>
+                            </div>
+                            <div className="buffer"></div>
+                            <div className="userNameTxt">User Name</div>
+                            <div className="userNameInput">
+                                <input id="userName" type="text" className="input-field"/>
+                            </div>
+                        </div>
+                    </div>
+                    {/* Sign Up Button */}
+                    <div className="signUpBtn">
+                        <button id="myAccount" type="submit">
+                            Sign Up
+                        </button>
+                    </div>
+                </form>
+                <div className="signUpBtn2">
+                    <Link to="/login">
+                        <button id="myAccount">Already Member</button>
                     </Link>
                 </div>
-            </form>
-            {/* <div className="signUpBtn"> */}
-            <div className="signUpBtn2">
-                <Link to="/login">
-                    <button id="myAccount">Already Member</button>
-                </Link>
-            </div>
 
+            </div>
         </div>
-    </div>
-  )
+    )
 }
 
 export default Register
