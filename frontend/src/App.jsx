@@ -12,19 +12,23 @@ import './App.css'
 function App() {
   const location = useLocation();
   const [user, setUser] = useState(null);
+  const [userPokemon, setUserPokemon] = useState(null);
+  const [trainerPokemon, setTrainerPokemon] = useState(null);
+  const [isSelected, setIsSelected] = useState(null);
 
   let backgroundClass = '';
   location.pathname === '/login' ? backgroundClass = 'login-background' :
     location.pathname === '/register' ? backgroundClass = 'register-background' :
+    location.pathname === '/pokemon-selector' ? backgroundClass = 'selector-background' :
     location.pathname === '/' ? backgroundClass = 'main-background' : '';
 
   return (
     <>
       <Nav userState={{user, setUser}}/>
       <Routes>
-        <Route path="/" element={<Main user={user}/>} />
-        <Route path="/battle" element={<Battle user={user}/>} />
-        <Route path="/pokemon-selector" element={<PokemonSelector user={user}/>} />
+        <Route path="/" element={<Main user={user} setUserPokemon={setUserPokemon} setTrainerPokemon={setTrainerPokemon} setIsSelected={setIsSelected}/>} />
+        <Route path="/battle" element={<Battle user={user} userPokemon={userPokemon} trainerPokemon={trainerPokemon} />} />
+        <Route path="/pokemon-selector" element={<PokemonSelector user={user} setUserPokemon={setUserPokemon} setTrainerPokemon={setTrainerPokemon} isSelected={isSelected} setIsSelected={setIsSelected}/>} />
         <Route path="/login" element={<Login setUser={setUser}/>} />
         <Route path="/register" element={<Register/>} />
       </Routes>

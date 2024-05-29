@@ -19,7 +19,8 @@ const Login = ({ setUser }) => {
 
     if (res.ok) {
       const { user } = await res.json();
-      setUser({ user });
+      setUser(user);
+      // localStorage.setItem('token', user.token);
       navigate('/');
     } else {
       const errorText = await res.text();

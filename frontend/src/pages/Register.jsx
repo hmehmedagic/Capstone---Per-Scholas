@@ -10,6 +10,18 @@ const Register = () => {
         const password = document.querySelector('#password').value;
         const name = document.querySelector('#name').value;
         const userName = document.querySelector('#userName').value;
+        const confirm = document.querySelector('#confirm').value;
+
+        if(!email) {
+            window.alert('Please enter an email.');
+            return;
+        } else if(!password) {
+            window.alert('Please enter a secure password.');
+            return;
+        } else if(!confirm || confirm != password) {
+            window.alert('Please re-enter your password');
+            return;
+        }
     
         const res = await fetch('/api/signup', {
           method: 'POST',
@@ -56,7 +68,7 @@ const Register = () => {
                             <div className="buffer"></div>
                             <div className="passTxt">Confirm Password</div>
                             <div className="passInput">
-                                <input type="password" className="input-field"/>
+                                <input id="confirm" type="password" className="input-field"/>
                             </div>
                             <div className="buffer"></div>
                             <div className="nameTxt">Name</div>

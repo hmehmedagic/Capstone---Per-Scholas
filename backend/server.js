@@ -44,12 +44,17 @@ app.use((req, res, next) => {
 });
 
 // Routing --> Remember to test in Postman
-// -----------------------------------------------
+const pokemonRouter = require('./routes/pokemon')
 
 app.post('/signup', usersController.signup);
 app.post('/login', usersController.login);
 app.post('/logout', usersController.logout);
 app.get('/check-auth',requireAuth ,usersController.checkAuth);
+
+app.use("/pokemon", pokemonRouter);
+
+
+// -----------------------------------------------
 
 app.get("/", (req, res) => {
     res.send("This is the Landing Page.")
