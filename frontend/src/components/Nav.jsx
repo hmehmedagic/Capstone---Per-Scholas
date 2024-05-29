@@ -1,8 +1,9 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-const Nav = ( {userState} ) => {
-  const {user, setUser} = userState;
+const Nav = ( {userState, setPokemon} ) => {
+  const { user, setUser } = userState;
+  const { setUserPokemon, setTrainerPokemon, setIsSelected } = setPokemon;
 
   const handleLogout = async() => {
     try {
@@ -11,6 +12,9 @@ const Nav = ( {userState} ) => {
       });
       if(res.ok) {
         setUser(null);
+        setUserPokemon(null);
+        setTrainerPokemon(null);
+        setIsSelected(null);
       }
     } catch(error) {
       console.error('We are having trouble logging you out.');

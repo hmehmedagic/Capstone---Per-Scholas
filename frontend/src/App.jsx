@@ -20,11 +20,12 @@ function App() {
   location.pathname === '/login' ? backgroundClass = 'login-background' :
     location.pathname === '/register' ? backgroundClass = 'register-background' :
     location.pathname === '/pokemon-selector' ? backgroundClass = 'selector-background' :
+    location.pathname === '/battle' ? backgroundClass = 'battle-background' :
     location.pathname === '/' ? backgroundClass = 'main-background' : '';
 
   return (
     <>
-      <Nav userState={{user, setUser}}/>
+      <Nav userState={{ user, setUser }} setPokemon={{ setUserPokemon, setTrainerPokemon, setIsSelected }} />
       <Routes>
         <Route path="/" element={<Main user={user} setUserPokemon={setUserPokemon} setTrainerPokemon={setTrainerPokemon} setIsSelected={setIsSelected}/>} />
         <Route path="/battle" element={<Battle user={user} userPokemon={userPokemon} trainerPokemon={trainerPokemon} />} />

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import Pokemon from '../components/Pokemon'
+import PokemonCard from '../components/PokemonCard'
 
 const PokemonSelector = ({user, setUserPokemon, setTrainerPokemon, isSelected, setIsSelected}) => {
   if(!user) {
@@ -60,7 +60,7 @@ const PokemonSelector = ({user, setUserPokemon, setTrainerPokemon, isSelected, s
       <div className='pokeSelector-container'>
         {pokemon.map((poke, index) => (
           <div key={index} className={`pokemon-${index}`}>
-            <Pokemon
+            <PokemonCard
               user={user}
               pokemon={poke}
               trainer={pokemon[(index + 1) % 3]}

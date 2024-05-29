@@ -58,42 +58,90 @@ body {
   justify-content: space-between;
   width: 70vw;
   height: 70vh;
-  border: solid black;
+  /* border: solid black; */
+  border: ridge;
+  border-radius: 15px;
   background-image: url("http://www.pokemontopaz.net/uploads/misc/battlegrassnight.png");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
 }
 
-.trainer {
+/* Menu */
+.menus {
   display: flex;
-  justify-content: flex-end;
-  margin-top: 4rem;
-  margin-right: 4rem;
-}
-
-.trainer img {
-  width: 200px;
-}
-
-.user {
-  display: flex;
-  margin-bottom: -2rem;
-  margin-left: 2rem;
-}
-
-.user img {
-  width: 200px;
 }
 
 .menu {
-  border: solid black;
-  background-color: black;
+  background-color: #333937;
   color: white;
   display: flex;
   width: 70vw;
   height: 15vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
+
+.menu .inner-menu {
+  background-color: #CAAB4E;
+  width: 99%;
+  height: 95%;
+  border-radius: 10px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.dbl-inner-menu {
+  background-color: #2F556D;
+  border: solid white;
+  border-radius: 3px;
+  width: 98%;
+  height: 80%;
+}
+
+.dbl-inner-menu p {
+  margin-left: 1rem;
+}
+
+.menu2 {
+  position: absolute;
+  background-color: #333937;
+  height: 110px;
+  width: 35%;
+  right: 15%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.menu2 .inner-menu {
+  background-color: white;
+  border: solid #8F879A;
+  width: 98%;
+  height: 90%;
+  border-radius: 10px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.options div{
+  margin-bottom: 1rem;
+  margin-top: 1rem;
+  font-size: 30px;
+  cursor: pointer;
+}
+
+.options span {
+  opacity: 0;
+}
+
+.options div:hover span {
+  opacity: 1;
+}
+/* End Menu */
 
 .login-background {
   background-image: url('https://images5.alphacoders.com/135/1351278.png');
@@ -124,6 +172,22 @@ body {
 .selector-background {
   /* background-image: url('https://images7.alphacoders.com/120/thumbbig-1207213.webp'); */
   background-image: url('https://images3.alphacoders.com/662/662132.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  position: fixed;
+  top: 78px;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+
+.battle-background {
+  /* background-image: url('https://images5.alphacoders.com/462/thumbbig-462552.webp'); */
+  /* background-image: url('https://images2.alphacoders.com/135/thumbbig-1351146.webp'); */
+  /* background-image: url('https://images6.alphacoders.com/135/thumbbig-1351898.webp'); */
+  background-image: url('https://images6.alphacoders.com/135/thumbbig-1359085.webp');
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -217,4 +281,107 @@ body {
   color: white;
   margin-top: 1rem;
   margin-bottom: 1rem;
+}
+
+/* Pokemon */
+.trainer {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 4rem;
+  margin-right: 4rem;
+}
+
+.user {
+  display: flex;
+  margin-bottom: -2rem;
+  margin-left: 2rem;
+}
+
+.trainer img,
+.user img {
+  width: 200px;
+}
+
+.userContainer {
+  display: flex;
+  width: 95%;
+  justify-content: space-between;
+}
+
+.trainerContainer {
+  width: 95%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.userAttributes,
+.trainerAttributes {
+  border: solid #506858;
+  background-color: #F7F7D7;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 5px;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 10px;
+  width: 250px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.userAttributes {
+  height: 80px;
+}
+
+.trainerAttributes {
+  height: 50px;
+}
+
+.name-lvl {
+  display: flex;
+  justify-content: space-between;
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
+  margin-top: 0.2rem;
+  margin-bottom: 1px;
+}
+
+.hpbar {
+  display: flex;
+  justify-content: flex-end;
+  margin-right: 0.2rem;
+}
+
+.trainer .hpbar {
+  margin-bottom: 0.1rem;
+}
+
+.hp-value {
+  display: flex;
+  justify-content: flex-end;
+  margin-right: 0.5rem;
+}
+
+/* HP Bar */
+.hp-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 80%;
+  height: 16px;
+  border-radius: 25px;
+  /* border: solid red; */
+  background-color: #506858;
+}
+
+.hp-bar .word {
+  color: #EFAC41;
+  margin-left: 0.5rem;
+}
+
+.hp-bar-child {
+  width: 80%;
+  height: 9px;
+  border-radius: 25px;
+  border: solid white;
+  background-color: #6CEF9F;
 }
