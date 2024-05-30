@@ -7,8 +7,7 @@ const Pokemon = ({user, pokemon, trainer, setUserPokemon, setTrainerPokemon, isS
             </div>;
   }
 
-  const handleSubmit = async (event) => {
-    event.preventDefault();
+  const handleSubmit = async () => {
     
         const res = await fetch('/api/pokemon', {
             method: 'POST',
@@ -41,8 +40,7 @@ const Pokemon = ({user, pokemon, trainer, setUserPokemon, setTrainerPokemon, isS
         }
   }
 
-  const handleRemove = async (event) => {
-    event.preventDefault();
+  const handleRemove = async () => {
     const res = await fetch(`/api/pokemon/${user._id}`, {
       method: 'DELETE',
       headers: {
@@ -57,8 +55,7 @@ const Pokemon = ({user, pokemon, trainer, setUserPokemon, setTrainerPokemon, isS
     }
   }
 
-  const handleUpdate = async (event) => {
-    event.preventDefault();
+  const handleUpdate = async () => {
     const res = await fetch(`/api/pokemon/${user._id}`, {
       method: 'PUT',
       headers: {

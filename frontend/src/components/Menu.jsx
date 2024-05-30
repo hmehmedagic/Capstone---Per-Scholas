@@ -3,7 +3,7 @@ import React from 'react'
 const Menu = ({pokemon}) => {
   return (
     <>
-      <div className="menus">
+      <div className="menus"> {/* menu to display text of pokemon actions */}
         <div className='menu'>
           <div className="inner-menu">
             <div className='dbl-inner-menu'>
@@ -12,7 +12,7 @@ const Menu = ({pokemon}) => {
             </div>
           </div>
         </div>
-        <div className="menu2">
+        <div className="menu2"> {/* menu to display actions for pokemon */}
           <div className="inner-menu">
             <div className='options'>
               <div><span>&#x25B6;</span>Fight</div>

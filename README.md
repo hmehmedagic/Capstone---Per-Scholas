@@ -17,41 +17,31 @@ The purpose of this project is to display my understanding of the MERN Stack. Th
 
 ### Frontend
 
-- First install either create-react-app or vite:
+#### Teachnologies Used
 
-    npx create-react-app <app-name>
+- [axios](https://www.npmjs.com/package/axios#features)
+- [react](https://www.npmjs.com/package/react)
+- [react-dom](https://www.npmjs.com/package/react-dom)
+- [react-router-dom](https://www.npmjs.com/package/react-router-dom)
 
-    npm create vite@latest <app-name>
+#### API('s) Used
 
-- Install React Router and React-Router-Dom
-
-    npm install react-router
-
-    npm install react-router-dom
-
-- Create a start script inside of your package.json so you can start the server easily
-
-    "start": "npm run dev"
+- [PokeAPI](https://pokeapi.co/) Unofficial Pokemon API
 
 ### Backend
 
-- First init:
+#### Teachnologies Used
 
-    npm init
-
-- Install Nodemon:
-
-    npm i nodemon --save-dev
-
-- Install Express:
-
-    npm i express
+- [bcryptjs](https://www.npmjs.com/package/bcryptjs)
+- [cookie-parser](https://www.npmjs.com/package/cookie-parser)
+- [cors](https://www.npmjs.com/search?q=cors)
+- [dotenv](https://www.npmjs.com/package/dotenv)
+- [express](https://www.npmjs.com/package/express)
+- [jsonwebtoken](https://www.npmjs.com/package/jsonwebtoken)
+- [mongoose](https://www.npmjs.com/package/mongoose)
+- [nodemon](https://www.npmjs.com/package/nodemon)
 
 ## Usage
-
-### API's Used
-
-- [PokeAPI] (https://pokeapi.co/) Unofficial Pokemon API
 
 ### Functionality
 

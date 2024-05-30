@@ -118,11 +118,10 @@ body {
 
 .menu2 .inner-menu {
   background-color: white;
-  border: solid #8F879A;
-  border-width: 8px;
+  border: 8px solid #8F879A;
+  border-radius: 13px;
   width: 95%;
   height: 80%;
-  border-radius: 10px;
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -144,6 +143,7 @@ body {
 }
 /* End Menu */
 
+/* Backgrounds */
 .login-background {
   background-image: url('https://images5.alphacoders.com/135/1351278.png');
   background-size: cover;
@@ -213,6 +213,8 @@ body {
   height: 100%;
   z-index: -1;
 }
+
+/* End Backgrounds */
 
 .dummyContainer {
   display: flex;
@@ -386,3 +388,5 @@ body {
   border: solid white;
   background-color: #6CEF9F;
 }
+
+/* End HP Bar */

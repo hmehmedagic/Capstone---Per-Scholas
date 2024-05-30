@@ -5,7 +5,7 @@ const Login = ({ setUser }) => {
   const navigate = useNavigate();
 
   const handleSubmitFormData = async (event) => {
-    event.preventDefault();
+    event.preventDefault(); //needed to stop the default event caused by submit for forms which refreshs the page.
     const email = document.querySelector('#email').value;
     const password = document.querySelector('#password').value;
 
@@ -19,12 +19,11 @@ const Login = ({ setUser }) => {
 
     if (res.ok) {
       const { user } = await res.json();
-      setUser(user);
-      // localStorage.setItem('token', user.token);
-      navigate('/');
+      setUser(user); //save the user to state.
+      navigate('/'); //navigates to the homepage after submit button is clicked.
     } else {
-      const errorText = await res.text();
-      window.alert(errorText);
+      const errorText = await res.text(); //error text sent from backend.
+      window.alert(errorText); //alert to user of the error.
     }
   };
 
