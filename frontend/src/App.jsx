@@ -11,12 +11,12 @@ import './App.css'
 
 function App() {
   const location = useLocation();
-  const [user, setUser] = useState(null);
-  const [userPokemon, setUserPokemon] = useState(null);
-  const [trainerPokemon, setTrainerPokemon] = useState(null);
-  const [isSelected, setIsSelected] = useState(null);
+  const [user, setUser] = useState(null); //User state
+  const [userPokemon, setUserPokemon] = useState(null); // The user's pokemon
+  const [trainerPokemon, setTrainerPokemon] = useState(null); // The trainer's pokemon
+  const [isSelected, setIsSelected] = useState(null); // Used for determining the trainer's pokemon
 
-  let backgroundClass = '';
+  let backgroundClass = ''; // Allows for dynamic allocation of backgrounds depending the page currently being viewed.
   location.pathname === '/login' ? backgroundClass = 'login-background' :
     location.pathname === '/register' ? backgroundClass = 'register-background' :
     location.pathname === '/pokemon-selector' ? backgroundClass = 'selector-background' :

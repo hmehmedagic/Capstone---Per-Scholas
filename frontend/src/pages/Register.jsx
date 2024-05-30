@@ -1,6 +1,9 @@
 import { Link, useNavigate } from 'react-router-dom'
 import '../assets/login_register.css'
 
+/* 
+    handles registration of new users
+*/
 const Register = () => {
     const navigate = useNavigate();
 

@@ -14,7 +14,6 @@ const Main = ({user, setUserPokemon, setTrainerPokemon, setIsSelected}) => {
       const res = await fetch(`/api/pokemon/${user._id}`, {
         method: 'GET',
         headers: {
-            // 'Authorization': 'Bearer' + localStorage.getItem('token'),
             'Content-Type': 'application/json',
         },
       });

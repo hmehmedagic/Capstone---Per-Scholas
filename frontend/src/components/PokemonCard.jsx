@@ -56,7 +56,7 @@ const Pokemon = ({user, pokemon, trainer, setUserPokemon, setTrainerPokemon, isS
   }
 
   const handleUpdate = async () => {
-    const res = await fetch(`/api/pokemon/${user._id}`, {
+    const res = await fetch(`/api/pokemon`, {
       method: 'PUT',
       headers: {
           'Content-Type': 'application/json',

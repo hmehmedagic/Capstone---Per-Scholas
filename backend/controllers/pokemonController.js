@@ -41,9 +41,9 @@ const updatePokemon = async (req, res) => {
 }
 
 const deletePokemon = async (req, res) => {
-    const { userId } = req.body;
+    const userId = req.params.userId;
 
-    await Pokemon.deleteOne({ userId });
+    await Pokemon.deleteOne({"userId": userId});
 
     res.status(200).send('Pokemon removed from party.');
 }

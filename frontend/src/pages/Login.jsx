@@ -1,6 +1,10 @@
 import { Link, useNavigate } from 'react-router-dom';
 import '../assets/login_register.css';
 
+/* 
+  Allows user to log in to their existing account.
+*/
+
 const Login = ({ setUser }) => {
   const navigate = useNavigate();
 
@@ -9,7 +13,7 @@ const Login = ({ setUser }) => {
     const email = document.querySelector('#email').value;
     const password = document.querySelector('#password').value;
 
-    const res = await fetch('/api/login', {
+    const res = await fetch('/api/login', { //used to fetch user
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -17,7 +21,7 @@ const Login = ({ setUser }) => {
       body: JSON.stringify({ email, password }),
     });
 
-    if (res.ok) {
+    if (res.ok) { //if user exists
       const { user } = await res.json();
       setUser(user); //save the user to state.
       navigate('/'); //navigates to the homepage after submit button is clicked.

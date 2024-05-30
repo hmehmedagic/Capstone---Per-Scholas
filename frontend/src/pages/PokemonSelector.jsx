@@ -42,20 +42,6 @@ const PokemonSelector = ({user, setUserPokemon, setTrainerPokemon, isSelected, s
   }, []);
 
   return (
-    // <div className="dummyContainer">
-    //   <div className='pokeSelector-container'>
-    //     <div className='bulbasaur'>
-    //       <Pokemon user={user} pokemon={pokemon[0]} trainer={pokemon[1]} setUserPokemon={setUserPokemon} setTrainerPokemon={setTrainerPokemon} isSelected={isSelected} setIsSelectred={setIsSelected}/>
-    //     </div>
-    //     <div className="charmander">
-    //       <Pokemon user={user} pokemon={pokemon[1]} trainer={pokemon[2]} setUserPokemon={setUserPokemon} setTrainerPokemon={setTrainerPokemon} isSelected={isSelected} setIsSelectred={setIsSelected}/>
-    //     </div>
-    //     <div className="squirtle">
-    //       <Pokemon user={user} pokemon={pokemon[2]} trainer={pokemon[0]} setUserPokemon={setUserPokemon} setTrainerPokemon={setTrainerPokemon} isSelected={isSelected} setIsSelectred={setIsSelected}/>
-    //     </div>
-    //   </div>
-    // </div>
-
     <div className="dummyContainer">
       <div className='pokeSelector-container'>
         {pokemon.map((poke, index) => (
@@ -70,7 +56,6 @@ const PokemonSelector = ({user, setUserPokemon, setTrainerPokemon, isSelected, s
               setIsSelected={setIsSelected}
               selected={isSelected ? isSelected[index] : undefined}
             />
-
           </div>
         ))}
       </div>

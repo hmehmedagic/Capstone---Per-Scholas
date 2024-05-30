@@ -5,11 +5,11 @@ const pokemonController = require("../controllers/pokemonController");
 router
     .route("/")
     .post(pokemonController.addPokemon)
+    .put(pokemonController.updatePokemon)
 
 router
     .route("/:userId")
     .get(pokemonController.fetchPokemon)
-    .put(pokemonController.updatePokemon)
     .delete(pokemonController.deletePokemon);
 
 module.exports = router;
